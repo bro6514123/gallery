@@ -1,0 +1,46 @@
+:root {
+    --backgroundColor: #212023;
+    --backgroundBackgroundColor: #181818;
+    --textColor: #ebebd4;}
+
+body {
+  margin: 0;
+  font-family: monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 30px;
+    margin-top: 80px;
+}
+
+header {
+    width: 100vw;
+    height: 70px;
+    background-color: var(--backgroundColor);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+header .search_box {
+    grid-area: 1 / 1 / 2 / 2;
+    align-self: center;
+}
+

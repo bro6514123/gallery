@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      context:
+        ./back_end/
+      depends_on:
+        - db
+    networks:
+      - dev
+
+    db:
+      build:
+        context:
+          ./database/
+      networks:
+        - dev
+
+networks:
+  dev:
