@@ -3,17 +3,19 @@ services:
     build:
       context:
         ./back_end/
-      depends_on:
-        - db
+    depends_on:
+      - db
     networks:
       - dev
+    ports:
+      - "5000:5000"
 
-    db:
-      build:
-        context:
-          ./database/
-      networks:
-        - dev
+  db:
+    build:
+      context:
+        ./database/
+    networks:
+      - dev
 
 networks:
   dev:

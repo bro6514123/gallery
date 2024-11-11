@@ -6,10 +6,19 @@ from database import Database
 app = Flask(__name__)
 
 
+try:
+    database = Database()
+except:
+    database = None
+
+
 @app.get("/")
 def main():
-    database = Database()
-    return "<h1>Hello World</h1>"
+    global database
+    if not database:
+        database = Database()
+
+    return database.select_all()
 
 
 if __name__ == "__main__":
