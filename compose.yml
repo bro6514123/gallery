@@ -9,6 +9,23 @@ services:
       - dev
     ports:
       - "5000:5000"
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+
+  frontend:
+    build:
+      context:
+        ./front_end
+    depends_on:
+      - backend
+    networks:
+      - dev
+    ports:
+      - "3000:3000"
 
   db:
     build:
@@ -16,6 +33,12 @@ services:
         ./database/
     networks:
       - dev
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - "5432:5432"
 
 networks:
   dev:

@@ -1,3 +1,4 @@
-CREATE TABLE names (
-    name TEXT
+CREATE TABLE photos (
+    name TEXT,
+    url TEXT
 );

@@ -1,13 +1,27 @@
-class Photos {
-    static getPhotos() {
-        const photos = [
-            ["photo_1", "https://www.sidechef.com/ingredient/fcb5d21a-1d8f-414d-8a50-594aba3fcbea.jpg"],
-            ["photo_2", "https://www.sidechef.com/ingredient/fcb5d21a-1d8f-414d-8a50-594aba3fcbea.jpg"],
-            ["photo_3", "https://www.sidechef.com/ingredient/fcb5d21a-1d8f-414d-8a50-594aba3fcbea.jpg"]
-        ]
+import axios from "axios";
 
-        return photos
+class Photos {
+    static async getPhotos() {
+        try {
+            const resp = await axios.get("http://localhost:5000")
+            return resp.data
+        } catch (error) {
+            console.log(error)
+            return []
+        }
     }
+    static async addPhotos() {
+        try {
+            const response = await axios.post("http://localhost:5000", {
+                name: "test",
+                url: "url"
+            }, {});
+            console.log("Response:", response);
+        } catch (error) {
+            console.error("Error details:", error.toJSON());
+        }
+    }
+    
 }
 
 export default Photos;
